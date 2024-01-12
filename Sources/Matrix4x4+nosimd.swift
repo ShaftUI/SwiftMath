@@ -8,7 +8,7 @@
 
 #if NOSIMD
 @frozen
-public struct Matrix4x4f {
+public struct Matrix4x4f: Equatable, Hashable {
     internal var m11: Float = 0.0
     internal var m12: Float = 0.0
     internal var m13: Float = 0.0
