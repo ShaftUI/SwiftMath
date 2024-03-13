@@ -48,6 +48,10 @@ public struct Matrix4x4f: Codable, Equatable {
     public var inversed: Matrix4x4f {
         return unsafeBitCast(d.inverse, to: Matrix4x4f.self)
     }
+
+    public var determinant: Float {
+        return d.determinant
+    }
     
     // MARK: - subscript operations
     
