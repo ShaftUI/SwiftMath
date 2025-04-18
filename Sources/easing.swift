@@ -10,6 +10,8 @@
 import Darwin
 #elseif os(Linux) || os(Android)
 import Glibc
+#elseif canImport(WASILibc)
+  import WASILibc
 #endif
 
 // MARK: Linear

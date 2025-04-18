@@ -31,6 +31,17 @@ internal func arc4random() -> UInt32 {
 internal func arc4random_uniform(_ val: UInt32) -> UInt32 {
     return UInt32.random(in: 0...val)
 }
+
+#elseif canImport(WASILibc)
+    import WASILibc
+
+    internal func arc4random() -> UInt32 {
+        return UInt32(random())
+    }
+
+    internal func arc4random_uniform(_ val: UInt32) -> UInt32 {
+        return UInt32(random()) % val
+    }
 #endif
 
 // each type has its own random

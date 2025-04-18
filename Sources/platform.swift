@@ -89,6 +89,31 @@ internal func __tanpif(_ a: Float) -> Float {
     
 import Darwin
 
+#elseif canImport(WASILibc)
+
+import WASILibc
+
+@inline(__always)
+internal func __sincospif(_ a: Float, _ sina: inout Float, _ cosa: inout Float) {
+    sina = sin(a * Float.pi)
+    cosa = cos(a * Float.pi)
+}
+
+@inline(__always)
+internal func __sinpif(_ a: Float) -> Float {
+    return sin(a * Float.pi)
+}
+
+@inline(__always)
+internal func __cospif(_ a: Float) -> Float {
+    return cos(a * Float.pi)
+}
+
+@inline(__always)
+internal func __tanpif(_ a: Float) -> Float {
+    return tan(a * Float.pi)
+}
+
 #endif
 
 public func sincos(_ a: Angle, _ sina: inout Float, _ cosa: inout Float)  {

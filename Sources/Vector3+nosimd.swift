@@ -9,13 +9,15 @@
 #if NOSIMD
     
 #if (os(OSX) || os(iOS) || os(tvOS) || os(watchOS))
-import Darwin
+    import Darwin
 #elseif os(Linux) || os(Android)
-import Glibc
+    import Glibc
+#elseif canImport(WASILibc)
+    import WASILibc
 #endif
     
 @frozen
-public struct Vector3f {
+public struct Vector3f: Hashable {
     public var x: Float = 0.0
     public var y: Float = 0.0
     public var z: Float = 0.0

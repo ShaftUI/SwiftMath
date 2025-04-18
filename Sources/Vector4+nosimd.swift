@@ -11,10 +11,12 @@
 import Darwin
 #elseif os(Linux) || os(Android)
 import Glibc
+#elseif canImport(WASILibc)
+import WASILibc
 #endif
 
 @frozen
-public struct Vector4f {
+public struct Vector4f: Hashable {
     public var x: Float = 0.0
     public var y: Float = 0.0
     public var z: Float = 0.0

@@ -8,7 +8,7 @@
 
 #if NOSIMD
 @frozen
-public struct Matrix3x3f {
+public struct Matrix3x3f: Hashable {
     public var m11: Float = 0.0
     public var m12: Float = 0.0
     public var m13: Float = 0.0
@@ -202,20 +202,5 @@ public struct Matrix3x3f {
         )
     }
     
-}
-    
-extension Matrix3x3f: Equatable {
-    public static func ==(lhs: Matrix3x3f, rhs: Matrix3x3f) -> Bool {
-        if lhs.m11 != rhs.m11 { return false }
-        if lhs.m12 != rhs.m12 { return false }
-        if lhs.m13 != rhs.m13 { return false }
-        if lhs.m21 != rhs.m21 { return false }
-        if lhs.m22 != rhs.m22 { return false }
-        if lhs.m23 != rhs.m23 { return false }
-        if lhs.m31 != rhs.m31 { return false }
-        if lhs.m32 != rhs.m32 { return false }
-        if lhs.m33 != rhs.m33 { return false }
-        return true
-    }
 }
 #endif
